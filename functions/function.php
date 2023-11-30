@@ -15,6 +15,7 @@ function generaPassword()
         }
         return $outString;
     }
+    return null;
 }
 
 function fill1StringSpace($arrayString)

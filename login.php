@@ -1,16 +1,25 @@
 <?php
 include __DIR__ . "/partials/header.php";
 include __DIR__ . "/functions/function.php";
+session_start();
 
 $pass = '';
 
 if (isset($_GET["passwordLength"]) && $_GET["passwordLength"] !== "") {
     $pass = generaPassword();
-    echo '<div class="text-white container">' . $pass . '</div>';
+    if ($pass !== null) {
+
+        $_SESSION['password'] = $pass;
+        header('Location: index.php');
+        exit;
+    }
+
+
 }
+
 ?>
 <div class="container card bg-white p-4">
-    <?php if ($pass === '') { ?>
+    <?php if ($pass === null) { ?>
         <div class="alert alert-danger ">
             <?php echo 'errore di compilazione'; ?>
         </div>
@@ -19,25 +28,25 @@ if (isset($_GET["passwordLength"]) && $_GET["passwordLength"] !== "") {
         <!-- password input -->
         <div class="form-group d-flex flex-row justify-content-between ">
             <label for="passwordLength" class="pe-4">Lunghezza PASSWORD</label>
-            <input type="number" class="form-control" id="passwordLength" name="passwordLength">
+            <input type="number" min="6" max="20" class="form-control" id="passwordLength" name="passwordLength">
         </div>
 
         <div class="px-5 py-3 ">
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="repeat">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="repeat" checked>
                 <label class="form-check-label" for="flexSwitchCheckDefault">Ripetizione di caratteri</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="lettere">
-                <label class="form-check-label" for="flexSwitchCheckChecked">Lettere</label>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" name="lettere" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked1">Lettere</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="numeri">
-                <label class="form-check-label" for="flexSwitchCheckChecked">Numeri</label>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" name="numeri" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked2">Numeri</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="simboli">
-                <label class="form-check-label" for="flexSwitchCheckChecked">Simboli</label>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked3" name="simboli" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked3">Simboli</label>
             </div>
         </div>
 

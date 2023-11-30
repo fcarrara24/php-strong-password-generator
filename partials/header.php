@@ -10,7 +10,7 @@
     <link rel="stylesheet">
 </head>
 
-<body style="background-color: #002658">
+<body style="background-color: #002658; height: 100vh;">
     <header class="container pt-5 pb-2 ">
         <h1 class=" text-center text-secondary ">Strong Password Generator</h1>
         <h2 class="text-center text-white">Genera una password nuova</h2>
