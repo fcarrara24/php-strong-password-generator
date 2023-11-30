@@ -2,7 +2,11 @@
 function generaPassword()
 {
     if (isset($_GET["passwordLength"])) {
-        $isUniqueLetters = $_GET["repeat"] == "" ? true : false;
+        $isUniqueLetters = true;
+        if (isset($_GET["repeat"])) {
+            $isUniqueLetters = false;
+        }
+        //$isUniqueLetters = $_GET["repeat"] == "" ? true : false;
         $allOptionsArray = [
             'lettere',
             'simboli',
@@ -10,7 +14,9 @@ function generaPassword()
         ];
         $optionsArray = [];
         for ($i = 0; $i < count($allOptionsArray); $i++) {
-            if ($_GET[$allOptionsArray[$i]] !== null) {
+            if (@$_GET[$allOptionsArray[$i]] === null) {
+
+            } else {
                 $optionsArray[] = $_GET[$allOptionsArray[$i]];
             }
         }
