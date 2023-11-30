@@ -9,6 +9,9 @@ if (isset($_GET["passwordLength"]) && $_GET["passwordLength"] !== "") {
     $pass = generaPassword();
     if ($pass !== null) {
 
+        //posting all password
+        $_SESSION['options'] = $_GET['repeat'];
+
         $_SESSION['password'] = $pass;
         header('Location: index.php');
         exit;
@@ -33,22 +36,29 @@ if (isset($_GET["passwordLength"]) && $_GET["passwordLength"] !== "") {
 
         <div class="px-5 py-3 ">
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="repeat" checked>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="repeat" checked
+                    value="repeat">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Ripetizione di caratteri</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" name="lettere" checked>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" name="lettere" checked
+                    value="lettere">
                 <label class="form-check-label" for="flexSwitchCheckChecked1">Lettere</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" name="numeri" checked>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" name="numeri" checked
+                    value="numeri">
                 <label class="form-check-label" for="flexSwitchCheckChecked2">Numeri</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked3" name="simboli" checked>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked3" name="simboli" checked
+                    value="simboli">
                 <label class="form-check-label" for="flexSwitchCheckChecked3">Simboli</label>
             </div>
         </div>
+
+
+
 
 
         <div class="d-flex flex-row flex-start">

@@ -15,7 +15,7 @@ if (empty($_SESSION["password"])) {
     <div class="card bg-white p-5 d-flex flex-row flex-nowrap ">
         <div class=" alert ">password:</div>
         <div class="alert alert-success">
-            <?php echo $_SESSION["password"] ?>
+            <?php echo $_SESSION["password"]; ?>
         </div>
         <div class="button btn-alert d-flex flex-row p-2">
             <a href="logout.php">reset</a>
