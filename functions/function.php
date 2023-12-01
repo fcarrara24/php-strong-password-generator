@@ -6,21 +6,8 @@ function generaPassword()
         if (isset($_GET["repeat"])) {
             $isUniqueLetters = false;
         }
-        //$isUniqueLetters = $_GET["repeat"] == "" ? true : false;
-        $allOptionsArray = [
-            'lettere',
-            'simboli',
-            'numeri'
-        ];
-        $optionsArray = [];
-        for ($i = 0; $i < count($allOptionsArray); $i++) {
-            if (@$_GET[$allOptionsArray[$i]] === null) {
 
-            } else {
-                $optionsArray[] = $_GET[$allOptionsArray[$i]];
-            }
-        }
-
+        $optionsArray = isset($_GET['characters']) ? $_GET['characters'] : [];
         $fillers = [
             'lettere' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
             'simboli' => '!?&%$<>^+-*/()[]{}@#_=',

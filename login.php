@@ -40,18 +40,19 @@ if (isset($_GET["passwordLength"]) && $_GET["passwordLength"] !== "") {
                     value="repeat">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Ripetizione di caratteri</label>
             </div>
+
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" name="lettere" checked
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" name="characters[]" checked
                     value="lettere">
                 <label class="form-check-label" for="flexSwitchCheckChecked1">Lettere</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" name="numeri" checked
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked2" name="characters[]" checked
                     value="numeri">
                 <label class="form-check-label" for="flexSwitchCheckChecked2">Numeri</label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked3" name="simboli" checked
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked3" name="characters[]" checked
                     value="simboli">
                 <label class="form-check-label" for="flexSwitchCheckChecked3">Simboli</label>
             </div>

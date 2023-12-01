@@ -22,9 +22,3 @@ if (empty($_SESSION["password"])) {
         </div>
     </div>
 </div>
-
-
-
-<?php
-include __DIR__ . "/partials/footer.php";
-?>
